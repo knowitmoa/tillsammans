@@ -7,6 +7,8 @@ COPY *.csproj ./
 RUN dotnet restore
 
 COPY . ./
+
+RUN mv appsettings.Container.json appsettings.json 
 RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS final-env

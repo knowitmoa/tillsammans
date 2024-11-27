@@ -26,11 +26,11 @@ public class ActivityController: ControllerBase
     public async Task<IActionResult> GetActivities()
     {
         
-        // Use Include to eagerly load related entities (Owner and Participants)
+       
         var allActivities = await _context.Activities
-            .Include(a => a.Owner) // Include the Owner (User)
-            .Include(a => a.Participants) // Include the Participants (Users)
-            .ToListAsync(); // Fetch the list of activities with related data
+            .Include(a => a.Owner) 
+            .Include(a => a.Participants) 
+            .ToListAsync();
 
         return Ok(allActivities);
 
@@ -58,7 +58,7 @@ public class ActivityController: ControllerBase
     [HttpPost]
     public async Task<ActionResult<Activity>> PostActivity(Activity activity)
     {
-        // Validate that the owner exists by UserId
+        
         var owner = await _context.Users.FindAsync(activity.UserId);
         if (owner == null)
         {
@@ -70,14 +70,14 @@ public class ActivityController: ControllerBase
         
         foreach (var userId in activity.ParticipantIds)
         {
-            var participant = await _context.Users.FindAsync(userId);  // Find user by ID
+            var participant = await _context.Users.FindAsync(userId);  
         
             if (participant == null)
             {
                 throw new InvalidOperationException($"Participant with ID {userId} does not exist.");
             }
         
-            activity.Participants.Add(participant);  // Add the found participant to the list
+            activity.Participants.Add(participant);  
         }
         
         

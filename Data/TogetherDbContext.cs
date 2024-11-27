@@ -19,13 +19,13 @@ public class TogetherDbContext : DbContext
     {
         modelBuilder.Entity<Activity>()
             .HasOne(a => a.Owner)
-            .WithMany()  // You can define a navigation property for Users owned by them if needed
+            .WithMany()  
             .HasForeignKey(a => a.UserId)
-            .OnDelete(DeleteBehavior.Restrict); // Prevent cascade delete if needed
+            .OnDelete(DeleteBehavior.Restrict); 
 
         modelBuilder.Entity<Activity>()
             .HasMany(a => a.Participants)
-            .WithMany() // Define a join table or many-to-many if needed
+            .WithMany() 
             .UsingEntity(j => j.ToTable("ActivityParticipants"));
     }
 }
