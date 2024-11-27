@@ -1,5 +1,3 @@
-C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.json
 C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\Together2.0.exe
 C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\Together2.0.deps.json
 C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\Together2.0.runtimeconfig.json
@@ -133,3 +131,6 @@ C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\refint\Together2.0.dll
 C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\Together2.0.pdb
 C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\Together2.0.genruntimeconfig.cache
 C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\ref\Together2.0.dll
+C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\Together2.0.sourcelink.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.Container.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.json

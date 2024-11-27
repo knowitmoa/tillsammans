@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Together2.0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fb3b616767e036906db69fd850f8facbf2468b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Together2.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Together2.0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
