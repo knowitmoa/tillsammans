@@ -79,12 +79,6 @@ public class ActivityController: ControllerBase
         
             activity.Participants.Add(participant);  
         }
-        
-        
-
-  
-
-
 
         _context.Activities.Add(activity);
         await _context.SaveChangesAsync();
@@ -92,6 +86,40 @@ public class ActivityController: ControllerBase
        
         return CreatedAtAction(nameof(GetActivities), new { id = activity.Id }, activity);
     }
+
+    [HttpPost("AddUserToActivity/{activityId}/{userId}")]
+    public async Task<ActionResult<Activity>> PostUserToActivity(int activityId,int userId)
+    {
+        var activity = await _context.Activities
+            .Include(a => a.Participants)  // Load participants with the activity
+            .FirstOrDefaultAsync(a => a.Id == activityId);
+
+      
+        var user = await _context.Users.FindAsync(userId);
+        
+        if (activity == null)
+        {
+            return NotFound("The specified activity does not exist.");
+        }
+
+        
+        if (user == null)
+        {
+            return NotFound("The specified user does not exist.");
+        }
+        
+        if (activity.Participants.Any(p => p.Id == userId))
+        {
+            return BadRequest("User is already a participant in this activity.");
+        }
+        
+        activity.Participants.Add(user);
+        await _context.SaveChangesAsync();
+        
+        return Ok(new { message = "User added to the activity participants." });
+        
+    }
+    
     
     
 }
