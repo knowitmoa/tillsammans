@@ -1,10 +1,10 @@
 ﻿
 <template>
   <div id = "home-page">
-    <HeaderTogether/>
+    <HeaderTogether :users="users"/>
     <div class="main-container">
     <LeftSideBar :activities="activities"/>
-    <MapSquare/>
+    <MapSquare :activities="activities" />
     </div>
   </div>
 </template>
@@ -20,22 +20,35 @@ export default {
   data() {
     return {
       activities: [],
+      users: Object
     };
   }, 
   mounted() {
     axios
-        .get("http://localhost:8088/api/Activity") // Note the use of the proxy path
+        .get("http://localhost:8088/api/Activity") 
         .then((response) => {
           this.activities = response.data;
         })
         .catch((error) => {
           console.error("There was an error fetching the data:", error);
-          // Check for more detailed error info
+          
+          if (error.response) {
+            console.error("Server responded with status:", error.response.status);
+          }
+        });
+    axios
+        .get("http://localhost:8088/api/User/GetActiveUser")
+        .then((response) => {
+          this.users = response.data;
+        })
+        .catch((error) => {
+          console.error("There was an error fetching the data:", error);
           if (error.response) {
             console.error("Server responded with status:", error.response.status);
           }
         });
   },
+  
 
 };
 </script>
@@ -50,9 +63,8 @@ export default {
 }
 
 .main-container {
-  display: flex; /* Use flexbox for side-by-side layout */
-  flex-grow: 1; /* Ensure this takes up the remaining space */
-}
+  display: flex; 
+  flex-grow: 1; }
 body {
   font-family: Arial, sans-serif;
   margin: 0;

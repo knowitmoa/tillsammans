@@ -134,3 +134,8 @@ C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\ref\Together2.0.dll
 C:\Users\moaahl\source\repos\Together2.0\obj\Debug\net8.0\Together2.0.sourcelink.json
 C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.Container.json
 C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\appsettings.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\frontend\jsconfig.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\frontend\package-lock.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\frontend\package.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\package-lock.json
+C:\Users\moaahl\source\repos\Together2.0\bin\Debug\net8.0\package.json

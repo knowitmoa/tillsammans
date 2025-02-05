@@ -24,7 +24,13 @@ export default {
 
 <style scoped>
 .sidebar {
-  background-color: #333;
+  background: linear-gradient(
+      130deg,
+  
+      #62c2a1,
+      #7d80d1,
+      #b6a4e0
+  );
   color: white;
   width: 400px;
   height: 100vh;
@@ -39,12 +45,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-.cards-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  overflow-y: auto;
-}
 
 .cards-container .card {
   margin-bottom: 15px;

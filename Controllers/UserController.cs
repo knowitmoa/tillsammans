@@ -26,6 +26,19 @@ public class UserController: ControllerBase
         return Ok(allUsers);
 
     }
+
+    [HttpGet("GetActiveUser")]
+    public async Task<IActionResult> GetActiveUser()
+    {
+        var user = await  _context.Users.FirstOrDefaultAsync(u => u.ActiveUser);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+        
+        return Ok(user);
+    }
     
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)

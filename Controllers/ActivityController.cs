@@ -87,15 +87,17 @@ public class ActivityController: ControllerBase
         return CreatedAtAction(nameof(GetActivities), new { id = activity.Id }, activity);
     }
 
-    [HttpPost("AddUserToActivity/{activityId}/{userId}")]
-    public async Task<ActionResult<Activity>> PostUserToActivity(int activityId,int userId)
+    [HttpPost("AddUserToActivity/{activityId}")]
+    public async Task<ActionResult<Activity>> PostUserToActivity(int activityId)
     {
         var activity = await _context.Activities
             .Include(a => a.Participants)  // Load participants with the activity
             .FirstOrDefaultAsync(a => a.Id == activityId);
 
-      
-        var user = await _context.Users.FindAsync(userId);
+
+
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.ActiveUser);
+            
         
         if (activity == null)
         {
@@ -108,7 +110,7 @@ public class ActivityController: ControllerBase
             return NotFound("The specified user does not exist.");
         }
         
-        if (activity.Participants.Any(p => p.Id == userId))
+        if (activity.Participants.Any(p => p.Id == user.Id))
         {
             return BadRequest("User is already a participant in this activity.");
         }
